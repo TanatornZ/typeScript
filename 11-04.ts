@@ -17,18 +17,18 @@ checkNumber()
 
 // HOF
 
-const fruits = [
-  { fruit: "apple", price: 250 },
-  { fruit: "orange", price: 150 },
-  { fruit: "melon", price: 350 },
+const fruits: template[] = [
+  { name: "apple", price: 250 },
+  { name: "orange", price: 150 },
+  { name: "melon", price: 350 },
 ];
 
-// HOF build in 
+// HOF build in
 
-const cheap = fruits.filter(fruit => fruit.price < 300) ;
-console.log(cheap)
+// const cheap = fruits.filter(fruit => fruit.price < 300) ;
+// console.log(cheap)
 
-// create HOF 
+// create HOF
 
 // const myFilter = <T>(arr : T[], callback:void) : T[] => {
 //     const result = []
@@ -44,3 +44,37 @@ console.log(cheap)
 // const test = myFilter(fruits, fruit => fruit.price < 300)
 
 // console.log(test)
+
+type template = {
+  name: string;
+  price: number;
+};
+
+const func = (arg: number): template[] | undefined => {
+  const result: template[] = [];
+  fruits.forEach((fruit) => {
+    if (fruit.price <= arg) {
+      result.push(fruit);
+    }
+  });
+
+  // return result
+  return result;
+};
+
+const fakeFilter = (
+  arr: template[],
+  callback: (x: number) => template[] | undefined
+) => {
+  const result : template [] = [];
+};
+
+const findFruit = fakeFilter(fruits, func );
+
+console.log(findFruit);
+
+
+fruits.filter
+
+
+// filter<S extends T>(predicate: (value: T, index: number, array: T[]) => value is S, thisArg?: any): S[];
