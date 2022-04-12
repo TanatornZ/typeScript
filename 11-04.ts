@@ -57,24 +57,23 @@ const func = (arg: number): template[] | undefined => {
       result.push(fruit);
     }
   });
-
   // return result
   return result;
 };
 
 const fakeFilter = (
-  arr: template[],
+  num: number,
   callback: (x: number) => template[] | undefined
 ) => {
-  const result : template [] = [];
+  return callback(num)
 };
 
-const findFruit = fakeFilter(fruits, func );
+const findFruit = fakeFilter(300, func );
 
 console.log(findFruit);
 
 
-fruits.filter
+// fruits.filter
 
 
 // filter<S extends T>(predicate: (value: T, index: number, array: T[]) => value is S, thisArg?: any): S[];
